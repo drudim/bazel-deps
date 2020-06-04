@@ -4,10 +4,14 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:git.bzl",
      "git_repository", "new_git_repository")
 
+# Scala Rules
+# this commit contains fix to not use http://central.maven.org which is deprecated.
+# switches to https.
+# See also https://github.com/bazelbuild/rules_scala/commit/e7419fb
 git_repository(
     name = "io_bazel_rules_scala",
-    remote = "https://github.com/Tubular/rules_scala",
-    commit = "634ea5a68080778c4f88c80f47afa653f0e9f181" # HEAD as of 2020-04-21, update this as needed
+    remote = "https://github.com/bazelbuild/rules_scala",
+    commit = "e7419fb6bc3646a80e9ba3de8d3badfa72f81583"
 )
 
 http_archive(
